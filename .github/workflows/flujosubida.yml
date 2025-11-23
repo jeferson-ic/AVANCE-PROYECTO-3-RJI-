@@ -1,1 +1,37 @@
+name: Integración y entrega continua
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    env:
+      nombres: "Ronaldhiño Jefferson"
+      apellidos: "Inga Castillo"
+      edad: "21"
+      version_proyecto: "3.0"
+
+    steps:
+      - name: presentación
+        run: |
+          echo "Nombres: $nombres"
+          echo "Apellidos: $apellidos"
+          echo "Edad: $edad"
+
+      - name: datos generales
+        run: |
+          echo "carrera de ingeniería de sistemas"
+
+      - name: variables de entorno secretas
+        run: |
+          echo "user: ${{ secrets.user }}"
+          echo "password: ${{ secrets.password }}"
+
+      - name: variables abiertas
+        run: |
+          echo "Versión del proyecto: $version_proyecto"
 
